@@ -15,8 +15,9 @@ function formatDate(iso: string) {
   });
 }
 
-export default async function MatchDetailPage({ params }: { params: { id: string } }) {
-  const fixture = await getFixture(parseInt(params.id));
+export default async function MatchDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const fixture = await getFixture(parseInt(id));
 
   if (!fixture) {
     return (
