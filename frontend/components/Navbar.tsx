@@ -40,6 +40,7 @@ export default function Navbar() {
           <Image
             src="/logo.png"
             alt="FIFA World Cup 2026"
+            loading="eager"
             width={55}
             height={55}
             className={`object-contain transition-all duration-300 ease-out will-change-transform group-hover:scale-110 group-hover:-rotate-3 group-hover:drop-shadow-[0_0_10px_rgba(0,200,150,0.55)] shrink-0 ${
