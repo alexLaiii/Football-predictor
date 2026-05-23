@@ -5,18 +5,9 @@ import SirKimForm from "@/components/SirKimForm";
 import TeamLogo from "@/components/TeamLogo";
 import MatchContextDebug from "@/components/MatchContextDebug";
 import Link from "next/link";
+import LocalTime from "@/components/LocalTime";
 
 const TOTAL_PREDICTIONS = 6; // sirkim + 5 AI models
-
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleString("en-GB", {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-}
 
 export default async function MatchDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -49,7 +40,7 @@ export default async function MatchDetailPage({ params }: { params: Promise<{ id
           <TeamLogo src={fixture.away_team_crest} alt={fixture.away_team} className="w-10 h-10" />
         </div>
         <div className="mt-2 flex items-center gap-4 text-sm text-wc-muted">
-          <span>{formatDate(fixture.kickoff_at)}</span>
+          <LocalTime iso={fixture.kickoff_at} options={{ weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" }} />
           {fixture.status === "finished" && fixture.result && (
             <span className="bg-wc-blue/30 text-white text-xs px-2 py-0.5 rounded-full capitalize border border-wc-blue">
               Result: {fixture.result} ({fixture.home_goals}–{fixture.away_goals})
