@@ -55,15 +55,19 @@ export type ModelPerformance = {
 };
 
 export async function getFixtures(): Promise<Fixture[]> {
-  const res = await fetch(`${API_URL}/fixtures/`, { cache: "no-store" });
-  if (!res.ok) return [];
-  return res.json();
+  try {
+    const res = await fetch(`${API_URL}/fixtures/`, { cache: "no-store" });
+    if (!res.ok) return [];
+    return res.json();
+  } catch { return []; }
 }
 
 export async function getFixture(id: number): Promise<FixtureWithPredictions | null> {
-  const res = await fetch(`${API_URL}/fixtures/${id}`, { cache: "no-store" });
-  if (!res.ok) return null;
-  return res.json();
+  try {
+    const res = await fetch(`${API_URL}/fixtures/${id}`, { cache: "no-store" });
+    if (!res.ok) return null;
+    return res.json();
+  } catch { return null; }
 }
 
 export async function syncFixtures(): Promise<Fixture[]> {
@@ -79,15 +83,19 @@ export async function requestPredictions(fixtureId: number): Promise<Prediction[
 }
 
 export async function getPredictions(): Promise<Prediction[]> {
-  const res = await fetch(`${API_URL}/predictions/`, { cache: "no-store" });
-  if (!res.ok) return [];
-  return res.json();
+  try {
+    const res = await fetch(`${API_URL}/predictions/`, { cache: "no-store" });
+    if (!res.ok) return [];
+    return res.json();
+  } catch { return []; }
 }
 
 export async function getAllFixtures(): Promise<Fixture[]> {
-  const res = await fetch(`${API_URL}/fixtures/?include_past=true`, { cache: "no-store" });
-  if (!res.ok) return [];
-  return res.json();
+  try {
+    const res = await fetch(`${API_URL}/fixtures/?include_past=true`, { cache: "no-store" });
+    if (!res.ok) return [];
+    return res.json();
+  } catch { return []; }
 }
 
 export type SirKimInput = {
@@ -109,9 +117,11 @@ export async function submitSirKimPrediction(
 }
 
 export async function getPerformance(): Promise<ModelPerformance[]> {
-  const res = await fetch(`${API_URL}/performance/`, { cache: "no-store" });
-  if (!res.ok) return [];
-  return res.json();
+  try {
+    const res = await fetch(`${API_URL}/performance/`, { cache: "no-store" });
+    if (!res.ok) return [];
+    return res.json();
+  } catch { return []; }
 }
 
 export type JUserData = {
@@ -127,9 +137,11 @@ export type JTrackerData = {
 };
 
 export async function getJTracker(): Promise<JTrackerData | null> {
-  const res = await fetch(`${API_URL}/j-tracker/`, { cache: "no-store" });
-  if (!res.ok) return null;
-  return res.json();
+  try {
+    const res = await fetch(`${API_URL}/j-tracker/`, { cache: "no-store" });
+    if (!res.ok) return null;
+    return res.json();
+  } catch { return null; }
 }
 
 export async function resetJStreak(user: string): Promise<{ grok_response: string }> {
