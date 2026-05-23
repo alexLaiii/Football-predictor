@@ -20,7 +20,7 @@ The context JSON may contain rich match data:
 - home_top_scorer / away_top_scorer: team's top scorer and goals
 - h2h: head-to-head record between the teams
 - home_lineup / away_lineup: starting XI if available
-- home_injuries / away_injuries: injured/suspended players and reasons
+- home_injuries / away_injuries: injured/suspended players
 
 Your job:
 1. Estimate true probabilities for home/draw/away using the match context.

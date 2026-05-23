@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getFixtures, syncFixtures, type Fixture } from "@/lib/api";
 import TeamLogo from "@/components/TeamLogo";
+import RouteLoading from "@/components/RouteLoading";
 
 const LEAGUE_ORDER = [
   "World Cup",
@@ -84,7 +85,7 @@ export default function MatchesPage() {
   }
 
   if (loading) {
-    return <p className="text-wc-muted">Loading fixtures…</p>;
+    return <RouteLoading />;
   }
 
   const groups = groupByLeague(fixtures);
