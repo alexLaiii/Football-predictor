@@ -9,7 +9,7 @@ export default function PredictionsPoller() {
 
   useEffect(() => {
     const id = setInterval(() => {
-      if (Date.now() - startRef.current > 60_000) {
+      if (Date.now() - startRef.current > 180_000) {
         clearInterval(id);
         return;
       }
