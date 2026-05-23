@@ -1,4 +1,5 @@
 {
+  "$schema": "node_modules/wrangler/config-schema.json",
   "name": "football-predictor",
   "compatibility_date": "2025-01-01",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
@@ -12,5 +13,9 @@
       "binding": "WORKER_SELF_REFERENCE",
       "service": "football-predictor"
     }
-  ]
+  ],
+  "r2_buckets": [],
+  "images": {
+    "binding": "IMAGES"
+  }
 }
