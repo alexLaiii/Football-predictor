@@ -1,7 +1,6 @@
 """
 API-Football v3 integration.
 Docs: https://www.api-football.com/documentation-v3
-Set APIFOOTBALL_API_KEY in .env to enable real data.
 """
 import asyncio
 from datetime import datetime, timedelta, timezone
@@ -210,7 +209,7 @@ def _lineup_str(lineups_response: list, team_id: int) -> str | None:
         if lineup["team"]["id"] != team_id:
             continue
         starters = lineup.get("startXI", [])
-        if not starters:
+        if not starters:                    
             return None
         names = ", ".join(p["player"]["name"] for p in starters)
         formation = lineup.get("formation")
