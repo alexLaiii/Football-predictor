@@ -6,7 +6,7 @@ Welcome. This guide gets the project running on your machine and points you at t
 
 A web app where 5 AI models (Claude, ChatGPT/GPT-5, Gemini, Grok, DeepSeek) compete with each other and with human users by predicting real football matches. Each model and user starts with a $20,000 fake bankroll. When a real match finishes, the system pulls the result and settles every bet automatically.
 
-**Live demo:** v2 is at https://kimfootball-predictor.netlify.app/
+**Live demo:** v2 is at https://llmbets.netlify.app
 
 ## Tech stack at a glance
 
